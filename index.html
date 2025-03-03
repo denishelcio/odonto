@@ -1,0 +1,868 @@
+<style>
+  /* Base Styles */
+:root {
+  --primary-color: #f59e0b;
+  --primary-hover: #d97706;
+  --dark-color: #1f2937;
+  --light-color: #f3f4f6;
+  --gray-color: #4b5563;
+  --white-color: #ffffff;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--gray-color);
+  background-color: var(--white-color);
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.btn-primary {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+}
+
+.btn-full {
+  width: 100%;
+  text-align: center;
+}
+
+.highlight {
+  color: var(--primary-color);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-header h2 {
+  font-size: 2rem;
+  color: var(--dark-color);
+  margin-bottom: 10px;
+}
+
+.divider {
+  width: 80px;
+  height: 4px;
+  background-color: var(--primary-color);
+  margin: 0 auto;
+}
+
+.section-header p {
+  max-width: 600px;
+  margin: 20px auto 0;
+  color: var(--gray-color);
+}
+
+/* Header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--white-color);
+  box-shadow: var(--shadow);
+  z-index: 1000;
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+}
+
+.logo h1 {
+  font-size: 1.5rem;
+  color: var(--dark-color);
+}
+
+.desktop-nav {
+  display: none;
+}
+
+.desktop-nav ul {
+  display: flex;
+  align-items: center;
+}
+
+.desktop-nav li {
+  margin-left: 30px;
+}
+
+.nav-link {
+  color: var(--gray-color);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--primary-color);
+}
+
+.mobile-menu-btn {
+  background: none;
+  border: none;
+  color: var(--gray-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.mobile-nav {
+  display: block;
+  background-color: var(--white-color);
+  border-top: 1px solid #e5e7eb;
+  padding: 10px 0;
+  display: none;
+}
+
+.mobile-nav.active {
+  display: block;
+}
+
+.mobile-nav ul {
+  padding: 0 20px;
+}
+
+.mobile-nav li {
+  padding: 10px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.mobile-nav li:last-child {
+  border-bottom: none;
+}
+
+/* Hero Section */
+.hero {
+  padding: 120px 0 60px;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-text {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.hero-text h2 {
+  font-size: 2rem;
+  color: var(--dark-color);
+  margin-bottom: 20px;
+}
+
+.hero-text p {
+  margin-bottom: 30px;
+  max-width: 600px;
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 500px;
+}
+
+/* About Section */
+.about {
+  padding: 80px 0;
+  background-color: var(--light-color);
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-image {
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 40px;
+}
+
+.about-text h3 {
+  font-size: 1.5rem;
+  color: var(--dark-color);
+  margin-bottom: 15px;
+}
+
+.about-text p {
+  margin-bottom: 30px;
+}
+
+.values-list li {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.values-list span {
+  color: var(--primary-color);
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+/* Services Section */
+.services {
+  padding: 80px 0;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+.service-card {
+  background-color: var(--white-color);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  transition: box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.service-icon {
+  width: 70px;
+  height: 70px;
+  background-color: rgba(245, 158, 11, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.service-icon i {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+}
+
+.service-card h3 {
+  font-size: 1.3rem;
+  color: var(--dark-color);
+  margin-bottom: 15px;
+}
+
+/* Contact Section */
+.contact {
+  padding: 80px 0;
+  background-color: var(--light-color);
+}
+
+.contact-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-info {
+  width: 100%;
+}
+
+.contact-info.full-width {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.info-card, .form-card {
+  background-color: var(--white-color);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.info-card h3, .form-card h3 {
+  font-size: 1.3rem;
+  color: var(--dark-color);
+  margin-bottom: 25px;
+}
+
+.info-item {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.info-icon {
+  color: var(--primary-color);
+  margin-right: 15px;
+  font-size: 1.2rem;
+  margin-top: 5px;
+}
+
+.info-text h4 {
+  font-weight: 600;
+  color: var(--dark-color);
+  margin-bottom: 5px;
+}
+
+.social-media {
+  margin-top: 30px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.social-icons a {
+  color: var(--gray-color);
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: var(--primary-color);
+}
+
+/* Footer */
+.footer {
+  background-color: var(--dark-color);
+  color: #9ca3af;
+  padding: 60px 0 20px;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer h3 {
+  color: var(--white-color);
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.footer-about p {
+  margin-bottom: 20px;
+}
+
+.footer-links ul li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--primary-color);
+}
+
+.footer-contact ul li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.footer-contact i {
+  color: var(--primary-color);
+  margin-right: 10px;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #374151;
+}
+
+/* Media Queries */
+@media (min-width: 768px) {
+  .desktop-nav {
+    display: block;
+  }
+  
+  .mobile-menu-btn {
+    display: none;
+  }
+  
+  .hero-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .hero-text {
+    text-align: left;
+    margin-bottom: 0;
+    width: 50%;
+  }
+  
+  .hero-image {
+    width: 45%;
+  }
+  
+  .about-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .about-image {
+    width: 45%;
+    margin-bottom: 0;
+  }
+  
+  .about-text {
+    width: 50%;
+  }
+  
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .footer-content {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-text h2 {
+    font-size: 2.5rem;
+  }
+  
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+</style>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ISO SAÚDE INTEGRADA - Odontologia de Excelência</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <h1><span class="highlight">ISO</span> SAÚDE INTEGRADA</h1>
+      </div>
+      
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav">
+        <ul>
+          <li><a href="#home" class="nav-link active">Início</a></li>
+          <li><a href="#about" class="nav-link">Sobre Nós</a></li>
+          <li><a href="#services" class="nav-link">Serviços</a></li>
+          <li><a href="#contact" class="btn-primary">Contato</a></li>
+        </ul>
+      </nav>
+      
+      <!-- Mobile Menu Button -->
+      <button class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+    
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+      <ul>
+        <li><a href="#home" class="nav-link">Início</a></li>
+        <li><a href="#about" class="nav-link">Sobre Nós</a></li>
+        <li><a href="#services" class="nav-link">Serviços</a></li>
+        <li><a href="#contact" class="nav-link">Contato</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h2>Transformando sorrisos, promovendo saúde e bem-estar!</h2>
+          <p>Cuidamos do seu sorriso com excelência e dedicação, para que você possa sorrir com confiança.</p>
+          <a href="#contact" class="btn-primary">Agende sua consulta</a>
+        </div>
+        <div class="hero-image">
+          <img src="img.jpg" alt="ISO SAÚDE INTEGRADA">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="section-header">
+        <h2>Sobre Nós</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="about-content">
+        <div class="about-image">
+          <img src="img.png" alt="Equipe ISO SAÚDE INTEGRADA"> 
+        </div>
+        <div class="about-text">
+          <h3>Nossa Missão</h3>
+          <p>
+            Na ISO SAÚDE INTEGRADA, nossa missão é proporcionar tratamentos odontológicos de excelência, 
+            priorizando o bem-estar e a satisfação dos nossos pacientes. Acreditamos que um sorriso 
+            saudável é fundamental para a qualidade de vida e autoestima.
+          </p>
+          <h3>Nossos Valores</h3>
+          <ul class="values-list">
+            <li><span>✓</span> Excelência no atendimento e nos procedimentos</li>
+            <li><span>✓</span> Compromisso com a saúde integral dos pacientes</li>
+            <li><span>✓</span> Ética e transparência em todas as relações</li>
+            <li><span>✓</span> Atualização constante em técnicas e tecnologias</li>
+            <li><span>✓</span> Ambiente acolhedor e humanizado</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="services">
+    <div class="container">
+      <div class="section-header">
+        <h2>Nossos Serviços</h2>
+        <div class="divider"></div>
+        <p>Oferecemos uma ampla gama de serviços odontológicos para cuidar da sua saúde bucal de forma completa e integrada.</p>
+      </div>
+      
+      <div class="services-grid">
+        <!-- Service 1 -->
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-tooth"></i>
+          </div>
+          <h3>Odontologia Preventiva</h3>
+          <p>
+            Cuidados preventivos para manter sua saúde bucal em dia, incluindo limpezas profissionais, 
+            aplicação de flúor e orientações personalizadas.
+          </p>
+        </div>
+        
+        <!-- Service 2 -->
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-heart"></i>
+          </div>
+          <h3>Estética Dental</h3>
+          <p>
+            Procedimentos estéticos para transformar seu sorriso, como clareamento dental, 
+            facetas de porcelana e restaurações estéticas.
+          </p>
+        </div>
+        
+        <!-- Service 3 -->
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-stethoscope"></i>
+          </div>
+          <h3>Tratamento de Canal</h3>
+          <p>
+            Tratamentos endodônticos realizados com tecnologia avançada e técnicas modernas 
+            para preservar seus dentes naturais.
+          </p>
+        </div>
+        
+        <!-- Service 4 -->
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>Odontopediatria</h3>
+          <p>
+            Atendimento especializado para crianças, com ambiente lúdico e abordagem 
+            cuidadosa para proporcionar experiências positivas.
+          </p>
+        </div>
+        
+        <!-- Service 5 -->
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-tooth"></i>
+          </div>
+          <h3>Implantes Dentários</h3>
+          <p>
+            Soluções permanentes para substituição de dentes perdidos, devolvendo 
+            função e estética ao seu sorriso.
+          </p>
+        </div>
+        
+        <!-- Service 6 -->
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-heart"></i>
+          </div>
+          <h3>Ortodontia</h3>
+          <p>
+            Tratamentos ortodônticos com aparelhos convencionais, estéticos e alinhadores 
+            transparentes para corrigir o posicionamento dos dentes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-header">
+        <h2>Entre em Contato</h2>
+        <div class="divider"></div>
+        <p>Estamos prontos para atender você e sua família. Entre em contato conosco para agendar sua consulta ou tirar dúvidas.</p>
+      </div>
+      
+      <div class="contact-content">
+        <div class="contact-info full-width">
+          <div class="info-card">
+            <h3>Informações de Contato</h3>
+            
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="info-text">
+                <h4>Endereço</h4>
+                <p>Avenida Minas Gerais, n. 44, Goianésia, Goiás</p>
+              </div>
+            </div>
+            
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="info-text">
+                <h4>Telefone</h4>
+                <p>(62) 98566-5896</p>
+              </div>
+            </div>
+            
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="info-text">
+                <h4>E-mail</h4>
+                <p>contato@isosaudeintegrada.com.br</p>
+              </div>
+            </div>
+            
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div class="info-text">
+                <h4>Horário de Atendimento</h4>
+                <p>Segunda a Sexta: 8h às 18h</p>
+                <p>Sábado: 8h às 12h</p>
+              </div>
+            </div>
+            
+            <div class="social-media">
+              <h4>Redes Sociais</h4>
+              <div class="social-icons">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-about">
+          <h3><span class="highlight">ISO</span> SAÚDE INTEGRADA</h3>
+          <p>Transformando sorrisos, promovendo saúde e bem-estar para toda a família.</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Links Rápidos</h3>
+          <ul>
+            <li><a href="#home">Início</a></li>
+            <li><a href="#about">Sobre Nós</a></li>
+            <li><a href="#services">Serviços</a></li>
+            <li><a href="#contact">Contato</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-contact">
+          <h3>Contato</h3>
+          <ul>
+            <li>
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Avenida Minas Gerais, n. 44, Goianésia, Goiás</span>
+            </li>
+            <li>
+              <i class="fas fa-phone"></i>
+              <span>(62) 98566-5896</span>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <span>contato@isosaudeintegrada.com.br</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; <span id="current-year"></span> ISO SAÚDE INTEGRADA. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+<script>
+  // Mobile Menu Toggle
+const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+const mobileNav = document.querySelector('.mobile-nav');
+
+mobileMenuBtn.addEventListener('click', () => {
+  mobileNav.classList.toggle('active');
+  
+  // Change icon
+  const icon = mobileMenuBtn.querySelector('i');
+  if (mobileNav.classList.contains('active')) {
+    icon.classList.remove('fa-bars');
+    icon.classList.add('fa-times');
+  } else {
+    icon.classList.remove('fa-times');
+    icon.classList.add('fa-bars');
+  }
+});
+
+// Smooth Scrolling for Navigation Links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    // Close mobile menu if open
+    if (mobileNav.classList.contains('active')) {
+      mobileNav.classList.remove('active');
+      const icon = mobileMenuBtn.querySelector('i');
+      icon.classList.remove('fa-times');
+      icon.classList.add('fa-bars');
+    }
+    
+    const targetId = this.getAttribute('href');
+    const targetElement = document.querySelector(targetId);
+    
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop - 80, // Adjust for header height
+        behavior: 'smooth'
+      });
+      
+      // Update active nav link
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+      });
+      
+      if (this.classList.contains('nav-link')) {
+        this.classList.add('active');
+      }
+    }
+  });
+});
+
+// Update active navigation link on scroll
+window.addEventListener('scroll', () => {
+  const scrollPosition = window.scrollY;
+  const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('.desktop-nav .nav-link');
+  
+  sections.forEach((section, index) => {
+    const sectionTop = section.offsetTop - 100;
+    const sectionHeight = section.offsetHeight;
+    const sectionId = section.getAttribute('id');
+    
+    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${sectionId}`) {
+          link.classList.add('active');
+        }
+      });
+    }
+  });
+});
+
+// Set current year in footer
+document.getElementById('current-year').textContent = new Date().getFullYear();
+
+// Form submission (prevent default for demo)
+const contactForm = document.querySelector('.contact-form form');
+if (contactForm) {
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('Mensagem enviada com sucesso! Em breve entraremos em contato.');
+    contactForm.reset();
+  });
+}
+</script>
