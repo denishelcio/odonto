@@ -1,5 +1,5 @@
 <style>
-  /* Base Styles */
+/* Base Styles */
 :root {
   --primary-color: #f59e0b;
   --primary-hover: #d97706;
@@ -227,14 +227,27 @@ a {
   margin-bottom: 40px;
 }
 
+.about-text {
+  width: 100%;
+}
+
+.welcome-text {
+  margin-bottom: 30px;
+}
+
+.welcome-text p {
+  margin-bottom: 15px;
+}
+
 .about-text h3 {
   font-size: 1.5rem;
   color: var(--dark-color);
   margin-bottom: 15px;
+  margin-top: 30px;
 }
 
 .about-text p {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .values-list li {
@@ -293,6 +306,16 @@ a {
   margin-bottom: 15px;
 }
 
+.service-list {
+  list-style: disc;
+  padding-left: 20px;
+  color: var(--gray-color);
+}
+
+.service-list li {
+  margin-bottom: 8px;
+}
+
 /* Contact Section */
 .contact {
   padding: 80px 0;
@@ -314,14 +337,14 @@ a {
   margin: 0 auto;
 }
 
-.info-card, .form-card {
+.info-card {
   background-color: var(--white-color);
   padding: 30px;
   border-radius: 8px;
   box-shadow: var(--shadow);
 }
 
-.info-card h3, .form-card h3 {
+.info-card h3 {
   font-size: 1.3rem;
   color: var(--dark-color);
   margin-bottom: 25px;
@@ -449,12 +472,14 @@ a {
   .about-content {
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
   }
   
   .about-image {
     width: 45%;
     margin-bottom: 0;
+    position: sticky;
+    top: 100px;
   }
   
   .about-text {
@@ -549,22 +574,37 @@ a {
       </div>
       <div class="about-content">
         <div class="about-image">
-          <img src="img.png" alt="Equipe ISO SAÚDE INTEGRADA"> 
+          <img src="img.png" alt="Equipe ISO SAÚDE INTEGRADA">
         </div>
         <div class="about-text">
+          <div class="welcome-text">
+            <p>
+              Bem-vindo à ISO SAÚDE INTEGRADA, onde cuidar do seu sorriso é a nossa principal prioridade. Somos uma clínica odontológica moderna e bem equipada que oferece uma ampla variedade de serviços odontológicos, desde procedimentos de rotina até tratamentos especializados.
+            </p>
+            <p>
+              Nossa equipe de dentistas altamente qualificados e experientes está dedicada a fornecer o melhor atendimento odontológico possível, utilizando as técnicas mais avançadas e equipamentos de última geração para garantir que você receba um tratamento eficaz e confortável.
+            </p>
+            <p>
+              Na nossa clínica, você encontrará um ambiente acolhedor e amigável, onde os pacientes são tratados com respeito e compaixão. Estamos empenhados em tornar a sua visita o mais agradável possível, oferecendo serviços personalizados e orientações para ajudá-lo a manter um sorriso saudável e brilhante por toda a vida.
+            </p>
+            <p>
+              Além disso, estamos sempre nos atualizando sobre as últimas tendências e inovações no campo da odontologia, para garantir que nossos pacientes recebam o melhor tratamento possível. Nosso objetivo é fornecer a cada paciente uma experiência de tratamento única e personalizada, baseada em suas necessidades específicas.
+            </p>
+          </div>
+
           <h3>Nossa Missão</h3>
           <p>
-            Na ISO SAÚDE INTEGRADA, nossa missão é proporcionar tratamentos odontológicos de excelência, 
-            priorizando o bem-estar e a satisfação dos nossos pacientes. Acreditamos que um sorriso 
-            saudável é fundamental para a qualidade de vida e autoestima.
+            Promover saúde bucal e bem-estar, oferecendo serviços odontológicos de alta qualidade, personalizados e acessíveis, 
+            com foco em excelência técnica, atendimento humanizado e contínua inovação para transformar sorrisos e vidas.
           </p>
+
           <h3>Nossos Valores</h3>
           <ul class="values-list">
+            <li><span>✓</span> Humanização: Tratar cada paciente com empatia, respeito e atenção</li>
+            <li><span>✓</span> Bem-estar: Proporcionar um ambiente acolhedor e seguro</li>
             <li><span>✓</span> Excelência no atendimento e nos procedimentos</li>
             <li><span>✓</span> Compromisso com a saúde integral dos pacientes</li>
             <li><span>✓</span> Ética e transparência em todas as relações</li>
-            <li><span>✓</span> Atualização constante em técnicas e tecnologias</li>
-            <li><span>✓</span> Ambiente acolhedor e humanizado</li>
           </ul>
         </div>
       </div>
@@ -581,76 +621,61 @@ a {
       </div>
       
       <div class="services-grid">
-        <!-- Service 1 -->
+        <!-- Odontopediatria -->
         <div class="service-card">
           <div class="service-icon">
             <i class="fas fa-tooth"></i>
           </div>
-          <h3>Odontologia Preventiva</h3>
-          <p>
-            Cuidados preventivos para manter sua saúde bucal em dia, incluindo limpezas profissionais, 
-            aplicação de flúor e orientações personalizadas.
-          </p>
+          <h3>Odontopediatria</h3>
+          <ul class="service-list">
+            <li>Restauração de resina</li>
+            <li>Restauração de ionômero</li>
+            <li>Capeamento pulpar direto e indireto</li>
+            <li>Coroa de acetato</li>
+            <li>Ulotomia</li>
+            <li>Ulectomia</li>
+            <li>Pulpectomia</li>
+            <li>Pulpotomia</li>
+            <li>Remoção freio lingual (bebês)</li>
+            <li>Canal em dente decíduo</li>
+          </ul>
         </div>
         
-        <!-- Service 2 -->
+        <!-- Harmonização Orofacial -->
         <div class="service-card">
           <div class="service-icon">
             <i class="fas fa-heart"></i>
           </div>
-          <h3>Estética Dental</h3>
-          <p>
-            Procedimentos estéticos para transformar seu sorriso, como clareamento dental, 
-            facetas de porcelana e restaurações estéticas.
-          </p>
+          <h3>Harmonização Orofacial</h3>
+          <ul class="service-list">
+            <li>Botox</li>
+            <li>PDRN</li>
+            <li>Preenchimento labial</li>
+            <li>Preenchimento de olheiras</li>
+            <li>Rinomodelação</li>
+            <li>Bioestimulador de colágeno</li>
+            <li>Fios de PDO</li>
+          </ul>
         </div>
         
-        <!-- Service 3 -->
+        <!-- Clínico Geral -->
         <div class="service-card">
           <div class="service-icon">
             <i class="fas fa-stethoscope"></i>
           </div>
-          <h3>Tratamento de Canal</h3>
-          <p>
-            Tratamentos endodônticos realizados com tecnologia avançada e técnicas modernas 
-            para preservar seus dentes naturais.
-          </p>
-        </div>
-        
-        <!-- Service 4 -->
-        <div class="service-card">
-          <div class="service-icon">
-            <i class="fas fa-users"></i>
-          </div>
-          <h3>Odontopediatria</h3>
-          <p>
-            Atendimento especializado para crianças, com ambiente lúdico e abordagem 
-            cuidadosa para proporcionar experiências positivas.
-          </p>
-        </div>
-        
-        <!-- Service 5 -->
-        <div class="service-card">
-          <div class="service-icon">
-            <i class="fas fa-tooth"></i>
-          </div>
-          <h3>Implantes Dentários</h3>
-          <p>
-            Soluções permanentes para substituição de dentes perdidos, devolvendo 
-            função e estética ao seu sorriso.
-          </p>
-        </div>
-        
-        <!-- Service 6 -->
-        <div class="service-card">
-          <div class="service-icon">
-            <i class="fas fa-heart"></i>
-          </div>
-          <h3>Ortodontia</h3>
-          <p>
-            Tratamentos ortodônticos com aparelhos convencionais, estéticos e alinhadores 
-            transparentes para corrigir o posicionamento dos dentes.
-          </p>
+          <h3>Clínico Geral</h3>
+          <ul class="service-list">
+            <li>Prótese (Dentadura)</li>
+            <li>Exodontia (extração de dentes)</li>
+            <li>Pino coroa/Bloco</li>
+            <li>Canal</li>
+            <li>Gengivoplastia</li>
+            <li>Aumento de coroa clínica</li>
+            <li>Restaurações</li>
+            <li>Profilaxia (Limpeza)</li>
+            <li>Facetas em porcelana</li>
+            <li>Facetas em resina</li>
+          </ul>
         </div>
       </div>
     </div>
